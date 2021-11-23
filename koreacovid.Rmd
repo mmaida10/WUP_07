@@ -38,12 +38,17 @@ with(kRdata, table(Sex, result))
 
 ## We create two bar charts - one based on frequency and the other on percent, use ggplot commands to do this
 
-`
+```{r}
+barchartGC(~result + sex,data=kRdata)
+```
 
-  
+Based on this graph, it is immediately obvious that there are significantly more females than there are males. If you stacked both of the blue bars and compared them to both of the pink bars, the blue bar, which represent the women who participated in this trial, is far taller than the pink. 
 
+```{r}
+barchartGC(~result + sex,data=kRdata, type="percent")
+```
 
-
+This second graph indicates that there is a larger percent of females living and a significantly larger percent of men who are dead. It seems as though 57% of the living population is female while 43% are male, and that 63% of the deceased population is male while 37% are female. This inverse proportionality makes  sense in light of the fact that there are far more females than males in this test population.
 
 
   
