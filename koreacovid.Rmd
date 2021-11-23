@@ -83,3 +83,4 @@ The P-value is rounded to 9e-4, which can be further rounded to 10e-4, which is 
 
 ## Conclusions
 
+The hypothesis states that there is a difference between the two genders, while the null hypothesis submits that there is not a noticeable correlation between the gender of the being and whether they survive Covid or not. We have a significant result; there is a probability of 1/1000 chance of results like this ever occurring under the assumption of the null hypothesis. Because these results are so significant, it is clear that there is a correlation between gender and result in this data set. Thus, we reject the null hypothesis. 
