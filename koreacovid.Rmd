@@ -49,16 +49,37 @@ barchartGC(~result + sex,data=kRdata, type="percent")
 ```
 
 This second graph indicates that there is a larger percent of females living and a significantly larger percent of men who are dead. It seems as though 57% of the living population is female while 43% are male, and that 63% of the deceased population is male while 37% are female. This inverse proportionality makes  sense in light of the fact that there are far more females than males in this test population.
-
-
   
 ## Numerical results
 
+```{r}
+table1 <- xtabs(~result + sex, data=kRdata)
+rowPerc(table1)
+colPerc(table1)
+```
+
+This numerical data reinforces the data received from the graphical results. The first set of data compares the female to male ratio of the results. A  majority of the living population is female: 56% female. In contrast, an even larger majority of the deceased population are male: 64% male. 
+
+The second set of numerical data helps puts things into perspective. By comparing the living to dead ratio of both genders. While 3% of males are dead, 1.4% of females are dead. The percent of males that are dead are more than 2x that of females.
 
 ## Inferential results 
 
+```{r}
+chisq.test(table1)
+chisqtestGC(table1)
+```
 
+There were 1831 females in the group of living females, and 25 in the group of dead females. In contrast, there were 1411 in the group of living males and 44 in the group of dead males. There were around 400 more females than males, yet almost double the rate of death in male group. 
 
+The degrees of freedom are calculated by subtracting the number of rows by one and the number of columns by one, and multiplying the two values. Since there were two columns (males and females) and two rows (living and dead), the resulting equation is (2-1) * (2-1) = 1, which is equal to the Chi-Squared calculated here.
+
+```{r}
+fisher.test(table1)
+```
+
+The Fisher Test was called to compute the odds ratio. The odds of a female dying under this set of data is 25/1831 and the odds of a male dying is 44/1411. So the odds ratio is (44/1411)/(25/1831) = 2.28388377. This can be rounded to 2.3, as calculated by the fisher.test function. 
+
+The P-value is rounded to 9e-4, which can be further rounded to 10e-4, which is equal to 0.001. Another way to phrase this 1/1,000. This P-value indicate the chance of such a result occuring under the condition of the null hypothesis.
 
 ## Conclusions
 
